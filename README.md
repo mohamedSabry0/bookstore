@@ -14,7 +14,7 @@
   - [Screenshot](#screenshot)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
-    <!-- - [Key Features](#key-features) -->
+    - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -25,8 +25,8 @@
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-<!-- - [🔭 Future Features](#future-features)
-- [❓ FAQ (OPTIONAL)](#faq) -->
+- [🔭 Future Features](#future-features)
+<!-- - [❓ FAQ (OPTIONAL)](#faq) -->
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
@@ -37,7 +37,7 @@
 
 ## Screenshot <a name="screenshot"></a>
 <div align='center'>
-  <img src="./app_screenshot.png" alt="logo" width="140"  height="auto" />
+  <!-- <img src="" alt="logo" width="140"  height="auto" /> -->
     <br/>
 </div>
 
@@ -53,22 +53,19 @@
 </details>
 
 <!-- Features -->
-<!-- 
+
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]** -->
+- **[Single Page Application]**
+- **[Reusable Components]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-(not yet deployed)
-<!-- - [Live Demo Link](https://yourdeployedapplicationlink.com) -->
+
+- [Live Demo Link](https://bookstore-615c.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,6 +166,14 @@ Feel free to check the [issues page](https://github.com/mohamedSabry0/bookstore/
 ## ⭐️ Show your support <a name="support"></a>
 
 If you like this project it would be truly appreciated if you give it a ⭐️.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[Improve Styling]**
+- [ ] **[Add Tags]**
+- [ ] **[Autofill author input from previous inputs]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
