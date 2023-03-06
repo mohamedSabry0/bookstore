@@ -6,11 +6,13 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    checkStatus(state) {
+    checkStatus(state, action) {
       // although the immer library is available there is a linter rule for param-reassignment
       return {
         ...state,
-        items: 'Under construction',
+        items: action.payload === 'Under construction'
+          ? 'Under construction'
+          : state.items,
       };
     },
   },
