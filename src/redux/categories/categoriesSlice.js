@@ -1,16 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { value: [] };
+const initialState = { items: [] };
 
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    removeBook(state, action) {
-      state.value.splice(action.payload);
-    },
-    AddBook(state, action) {
-      state.value.push(action.payload);
+    checkStatus(state) {
+      // although the immer library is available there is a linter rule for param-reassignment
+      return {
+        ...state,
+        items: 'Under construction',
+      };
     },
   },
 });
