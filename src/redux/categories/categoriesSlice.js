@@ -7,13 +7,10 @@ const categoriesSlice = createSlice({
   initialState,
   reducers: {
     checkStatus(state, action) {
-      // although the immer library is available there is a linter rule for param-reassignment
-      return {
-        ...state,
-        items: action.payload === 'Under construction'
-          ? 'Under construction'
-          : state.items,
-      };
+      // stick to the toolkit way, as it uses the immer library to map mutating to proper react way
+      state.items = action.payload === 'Under construction' // eslint-disable-line no-param-reassign
+        ? 'Under construction'
+        : state.items;
     },
   },
 });
