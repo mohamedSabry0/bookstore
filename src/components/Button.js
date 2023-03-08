@@ -4,9 +4,7 @@ function Button({ label, clickHandler }) {
   return (
     <button
       type="button"
-      onClick={() => {
-        clickHandler();
-      }}
+      onClick={clickHandler}
     >
       {label}
     </button>
