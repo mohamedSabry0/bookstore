@@ -184,6 +184,8 @@ I am grateful for these resources as they were a reason that I obtained a glimps
 - [Microverse](https://www.microverse.org/)
 - [ReactJS Docs](https://reactjs.org/docs)
 - [React Router Docs](https://reactrouter.com/en/main)
+- [Redux toolkit usage guide](https://redux-toolkit.js.org/usage/usage-guide)
+- @gitdagray [react_redux_toolkit tutorial](https://www.youtube.com/watch?v=93CR_yURoII)
 - I also thank other resources that might have slipped from my mind to mention, I really appreciate all the efforts in delivering helpful resources of knowledge.  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
