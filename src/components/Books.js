@@ -1,13 +1,15 @@
 import { useSelector } from 'react-redux';
+import { AllBooks } from '../redux/books/booksSlice';
 import Book from './Book';
 import BookForm from './BookForm';
 
 export default function Books() {
-  const { items } = useSelector((store) => store.books);
+  const Books = useSelector(AllBooks);
+
   return (
     <>
       <div className="books-list">
-        {items.map((item) => (
+        {Books.map((item) => (
           <Book
             key={item.item_id}
             id={item.item_id}
