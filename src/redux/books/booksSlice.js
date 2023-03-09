@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import unique from '../../util/unique';
-import { fetchBooks } from './booksThunks';
+import { fetchBooks, addBook } from './booksThunks';
 
 const initialState = {
   books: [],
@@ -18,9 +18,9 @@ const booksSlice = createSlice({
         books: [...state.books.filter((item) => item.item_id !== action.payload)],
       };
     },
-    addBook(state, action) {
-      state.books.push(action.payload);
-    },
+    // addBook(state, action) {
+    //   state.books.push(action.payload);
+    // },
   },
   extraReducers(builder) {
     builder
@@ -35,10 +35,15 @@ const booksSlice = createSlice({
         ...state,
         error: action.error.message,
         status: 'failed',
+      }))
+      .addCase(addBook.fulfilled, (state, action) => ({
+        ...state,
+        books: [...state.books, action.payload],
+        status: 'succeeded',
       }));
   },
 });
-export { fetchBooks };
 export const booksState = (state) => state.books;
-export const { removeBook, addBook } = booksSlice.actions;
+export { fetchBooks, addBook };
+export const { removeBook } = booksSlice.actions;
 export default booksSlice.reducer;

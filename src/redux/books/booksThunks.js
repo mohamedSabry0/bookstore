@@ -35,8 +35,11 @@ export const addBook = createAsyncThunk('books/addBook', async (book) => {
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
-      return res.json();
+      return res;
     })
     .catch((err) => err.message);
-  return response;
+  if (response.statusText !== 'Created') {
+    return 'failed';
+  }
+  return book;
 });
