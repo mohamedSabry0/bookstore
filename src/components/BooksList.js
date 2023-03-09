@@ -4,25 +4,19 @@ import { booksState, fetchBooks } from '../redux/books/booksSlice';
 import Book from './Book';
 
 export default function BooksList() {
-  console.log('booklist is called');
   const dispatch = useDispatch();
 
   const { books, error, status } = useSelector(booksState);
-  console.log(books);
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchBooks());
     }
-    console.log(status, 'i fire ');
   });
-
-  // console.log(status, error);
 
   if (status === 'loading') {
     return <p>Loading...</p>;
   }
   if (status === 'succeeded') {
-    // console.log(status);
     return (
       <div className="books-list">
         {books.map((item) => (
