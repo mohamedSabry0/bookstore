@@ -1,15 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import unique from '../../util/unique';
 
-// const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/HYYvKmGO3upxaXekhp4l/books';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/HYYvKmGO3upxaXekhp4l/books';
 // const delURL = (id) => `${URL}/id`;
 
-// const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-//   try {
-//     fetch(URL);
-//   } catch (err) {
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+  // console.log('fetchbooks is called');
+  const response = await fetch(URL)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch((err) => err.message);
 
-//   }
-// });
+  // const list = unique(response, );
+
+  return response;
+});
 
 // fetch(addUrl, {
 //   method: 'POST',
@@ -58,8 +67,24 @@ const booksSlice = createSlice({
       state.books.push(action.payload);
     },
   },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchBooks.pending, (state) => ({ ...state, status: 'loading' }))
+      .addCase(fetchBooks.fulfilled, (state, action) => ({
+        ...state,
+        // TODO: handle extra redundant render
+        // console.log(action.payload)
+        books: unique(action.payload, state.books),
+        status: 'succeeded',
+      }))
+      .addCase(fetchBooks.rejected, (state, action) => ({
+        ...state,
+        error: action.error.message,
+        status: 'failed',
+      }));
+  },
 });
 
-export const AllBooks = (state) => state.books.books;
+export const booksState = (state) => state.books;
 export const { removeBook, addBook } = booksSlice.actions;
 export default booksSlice.reducer;
