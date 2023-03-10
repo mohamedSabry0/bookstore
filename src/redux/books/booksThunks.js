@@ -10,8 +10,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
       return res.json();
-    })
-    .catch((err) => err.message);
+    });
   return response;
 });
 
@@ -28,10 +27,9 @@ export const addBook = createAsyncThunk('books/addBook', async (book) => {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
       return res;
-    })
-    .catch((err) => err.message);
+    });
   if (response.statusText !== 'Created') {
-    return 'failed';
+    return response;
   }
   return book;
 });
@@ -49,10 +47,9 @@ export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
       return res;
-    })
-    .catch((err) => err.message);
+    });
   if (response.statusText !== 'Created') {
-    return 'failed';
+    return response;
   }
   return id;
 });

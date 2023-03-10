@@ -32,11 +32,21 @@ const booksSlice = createSlice({
         books: [...state.books, action.payload],
         status: 'succeeded',
       }))
+      .addCase(addBook.rejected, (state, action) => ({
+        ...state,
+        error: action.error.message,
+        status: 'failed',
+      }))
       .addCase(removeBook.pending, (state) => ({ ...state, status: 'loading' }))
       .addCase(removeBook.fulfilled, (state, action) => ({
         ...state,
         books: [...state.books.filter((item) => item.item_id !== action.payload)],
         status: 'succeeded',
+      }))
+      .addCase(removeBook.rejected, (state, action) => ({
+        ...state,
+        error: action.error.message,
+        status: 'failed',
       }));
   },
 });

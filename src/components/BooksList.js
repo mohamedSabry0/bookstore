@@ -5,8 +5,8 @@ import Book from './Book';
 
 export default function BooksList() {
   const dispatch = useDispatch();
-
   const { books, error, status } = useSelector(booksState);
+
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchBooks());
@@ -30,7 +30,8 @@ export default function BooksList() {
         ))}
       </div>
     );
-  } if (status === 'failed') {
+  }
+  if (status === 'failed') {
     return (<p>{ error }</p>);
   }
 }
