@@ -26,11 +26,13 @@ const booksSlice = createSlice({
         error: action.error.message,
         status: 'failed',
       }))
+      .addCase(addBook.pending, (state) => ({ ...state, status: 'loading' }))
       .addCase(addBook.fulfilled, (state, action) => ({
         ...state,
         books: [...state.books, action.payload],
         status: 'succeeded',
       }))
+      .addCase(removeBook.pending, (state) => ({ ...state, status: 'loading' }))
       .addCase(removeBook.fulfilled, (state, action) => ({
         ...state,
         books: [...state.books.filter((item) => item.item_id !== action.payload)],
