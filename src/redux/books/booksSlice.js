@@ -52,5 +52,4 @@ const booksSlice = createSlice({
 });
 export const booksState = (state) => state.books;
 export { fetchBooks, addBook, removeBook };
-// export const { removeBook } = booksSlice.actions;
 export default booksSlice.reducer;
