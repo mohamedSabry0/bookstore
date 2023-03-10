@@ -7,7 +7,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await fetch(URL)
     .then((res) => {
       if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        throw new Error(`HTTP error! Error: ${res.status} ${res.statusText}`);
       }
       return res.json();
     });
@@ -15,7 +15,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
 });
 
 export const addBook = createAsyncThunk('books/addBook', async (book) => {
-  const response = await fetch(URL, {
+  await fetch(URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,18 +24,16 @@ export const addBook = createAsyncThunk('books/addBook', async (book) => {
   })
     .then((res) => {
       if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        throw new Error(`HTTP error! Error: ${res.status} ${res.statusText}`);
       }
       return res;
     });
-  if (response.statusText !== 'Created') {
-    return response;
-  }
+
   return book;
 });
 
 export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
-  const response = await fetch(delURL(id), {
+  await fetch(delURL(id), {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -44,12 +42,10 @@ export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
   })
     .then((res) => {
       if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        throw new Error(`HTTP error! Error: ${res.status} ${res.statusText}`);
       }
       return res;
     });
-  if (response.statusText !== 'Created') {
-    return response;
-  }
+
   return id;
 });
