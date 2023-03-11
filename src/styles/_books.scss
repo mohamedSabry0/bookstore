@@ -15,6 +15,7 @@
   margin: 1rem 0;
   background-color: $white-two;
   border: solid 1px $white;
+  border-radius: 4px;
 
   div {
     display: flex;
@@ -61,7 +62,7 @@
   .remove {
     border-left: solid 1px $white;
     border-right: solid 1px $white;
-    padding: 0 0.3rem;
-    margin: 0.3rem;
+    padding: 0 1rem;
+    margin: 0 1rem;
   }
 }

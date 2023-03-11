@@ -13,7 +13,9 @@ form {
     margin-bottom: 0.6rem;
   }
 
-  input {
+  input,
+  select {
+    background-color: $white-two;
     border: 1px solid $white;
     padding: 0.6rem 0.8rem;
     width: 100%;

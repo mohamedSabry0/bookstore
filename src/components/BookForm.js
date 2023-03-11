@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Form } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 
 export default function BookForm() {
   const [inputs, setInputs] = useState({ title: '', author: '', category: '' });
   const dispatch = useDispatch();
-  const addHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     const { title, author, category } = inputs;
 
     const Book = {
@@ -25,7 +25,7 @@ export default function BookForm() {
   };
   return (
 
-    <Form>
+    <form method="post" onSubmit={submitHandler}>
       <h3>ADD NEW BOOK</h3>
       <label htmlFor="title">
         <input
@@ -51,17 +51,15 @@ export default function BookForm() {
       </label>
 
       <label htmlFor="category">
-        <input
-          id="category"
+        <select
           name="category"
-          placeholder="Category"
-          value={inputs.category}
-          onChange={(e) => {
-            setInputs({ ...inputs, category: e.target.value });
-          }}
-        />
+        >
+          <option value="action">Action</option>
+          <option value="scienceFiction">Science Fiction</option>
+          <option value="economy">Economy</option>
+        </select>
       </label>
-      <button className="add-button" type="button" onClick={addHandler}>Add Book</button>
-    </Form>
+      <button className="add-button" type="submit">Add Book</button>
+    </form>
   );
 }
