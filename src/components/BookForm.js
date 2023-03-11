@@ -20,7 +20,7 @@ export default function BookForm() {
     setInputs({
       title: '',
       author: '',
-      category: '',
+      category: 'Action',
     });
   };
   return (
