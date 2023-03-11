@@ -12,12 +12,14 @@
   display: none;
 
   &.loading {
-    display: block;
-    color: red;
-  }
-
-  &.idle{
-    display: block;
-    color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 2rem;
+    color: $black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background-color: rgb(216, 255, 248);
   }
 }

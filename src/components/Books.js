@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { booksState } from '../redux/books/booksSlice';
 import BookForm from './BookForm';
-import BooksList, { LoadingSpinner } from './BooksList';
+import BooksList from './BooksList';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function Books() {
   const { status } = useSelector(booksState);

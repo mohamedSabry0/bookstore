@@ -26,10 +26,10 @@ export default function BookForm() {
 
     <Form>
       <label htmlFor="title">
-        {'Title: '}
         <input
           id="title"
           name="title"
+          placeholder="Book title"
           value={inputs.title}
           onChange={(e) => {
             setInputs({ ...inputs, title: e.target.value });
@@ -37,10 +37,10 @@ export default function BookForm() {
         />
       </label>
       <label htmlFor="author">
-        {'Author: '}
         <input
           id="author"
           name="author"
+          placeholder="Author"
           value={inputs.author}
           onChange={(e) => {
             setInputs({ ...inputs, author: e.target.value });
