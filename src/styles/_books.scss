@@ -2,9 +2,10 @@
 .book {
   display: flex;
 
-  &.button {
+  button {
     border: none;
     background-color: #fff;
     color: $cool-blue;
+    cursor: pointer;
   }
 }
