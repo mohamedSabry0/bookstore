@@ -1,5 +1,12 @@
 @import './styles/nav.scss';
 @import './styles/books.scss';
+@import './styles/colors.scss';
+
+#root {
+  background-color: $z;
+  width: 100vw;
+  height: 100vh;
+}
 
 .spinner {
   display: none;
