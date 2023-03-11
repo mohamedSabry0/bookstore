@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import Button from './Button';
 import { removeBook } from '../redux/books/booksSlice';
 
 function Book({ id, title, author }) {
@@ -10,25 +9,24 @@ function Book({ id, title, author }) {
   };
   return (
     <div id={id} className="book">
-      <p>
-        {title}
-        {' '}
-        - by
-        {' '}
-        <span>{author}</span>
-      </p>
-      <div className="actions-area">
+      <div>
+        <span className="book-title">{title}</span>
+        <span className="book-author">{author}</span>
 
-        <Button
-          label="Comments"
-        />
-        <Button
-          label="Remove"
-          clickHandler={removeHandler}
-        />
-        <Button
-          label="Edit"
-        />
+        <div className="actions-area">
+          <button type="button">Comments</button>
+
+          <button
+            type="button"
+            className="remove"
+            onClick={removeHandler}
+          >
+            Remove
+          </button>
+
+          <button type="button">Edit</button>
+        </div>
+
       </div>
     </div>
   );

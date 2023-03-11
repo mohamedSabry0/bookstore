@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Form } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
-import Button from './Button';
 
 export default function BookForm() {
   const [inputs, setInputs] = useState({ title: '', author: '' });
@@ -48,7 +47,7 @@ export default function BookForm() {
           }}
         />
       </label>
-      <Button label="Add Book" clickHandler={addHandler} />
+      <button type="button" onClick={addHandler}>Add Book</button>
     </Form>
   );
 }
