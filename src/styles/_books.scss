@@ -1,0 +1,10 @@
+@import './colors';
+.book {
+  display: flex;
+
+  &.button {
+    border: none;
+    background-color: #fff;
+    color: $cool-blue;
+  }
+}
