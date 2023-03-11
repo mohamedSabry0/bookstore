@@ -1,0 +1,25 @@
+@use './colors';
+
+$azure: #0290ff;
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  .logo {
+    color: $azure;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    a {
+      color: #121212;
+      opacity: 50%;
+      text-decoration: none;
+      padding: 6px;
+      &.active{
+        opacity: 100%;
+      }
+    }
+  }
+}

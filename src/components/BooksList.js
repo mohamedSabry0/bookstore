@@ -1,7 +1,16 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { booksState, fetchBooks } from '../redux/books/booksSlice';
 import Book from './Book';
+
+export function LoadingSpinner({ status }) {
+  return (
+    <div className={`spinner ${status}`}>
+      <p>Loading...</p>
+    </div>
+  );
+}
 
 export default function BooksList() {
   const dispatch = useDispatch();
@@ -11,11 +20,8 @@ export default function BooksList() {
     if (status === 'idle') {
       dispatch(fetchBooks());
     }
-  });
+  }, [dispatch, status]);
 
-  if (status === 'loading') {
-    return <p>Loading...</p>;
-  }
   if (status === 'succeeded') {
     return (
       <div className="books-list">
@@ -35,3 +41,5 @@ export default function BooksList() {
     return (<p>{ error }</p>);
   }
 }
+
+LoadingSpinner.propTypes = { status: PropTypes.string.isRequired };

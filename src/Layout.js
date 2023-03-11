@@ -4,7 +4,7 @@ export default function Layout() {
   return (
     <>
       <nav>
-        <h1 className="heading">Bookstore</h1>
+        <h1 className="logo">Bookstore CMS</h1>
         <ul>
           <li>
             <NavLink to="/">

@@ -1,0 +1,14 @@
+@use './styles/button.scss';
+@use './styles/nav.scss';
+
+.spinner {
+  display: none;
+  &.loading{
+    display: block;
+    color: red;
+  }
+  &.idle {
+    display: block;
+    color: blue;
+  }
+}
