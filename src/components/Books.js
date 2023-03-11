@@ -7,10 +7,10 @@ import LoadingSpinner from './LoadingSpinner';
 export default function Books() {
   const { status } = useSelector(booksState);
   return (
-    <>
+    <div className="books-page">
       <BooksList />
       <LoadingSpinner status={status} />
       <BookForm />
-    </>
+    </div>
   );
 }

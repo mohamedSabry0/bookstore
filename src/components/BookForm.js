@@ -5,26 +5,28 @@ import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 
 export default function BookForm() {
-  const [inputs, setInputs] = useState({ title: '', author: '' });
+  const [inputs, setInputs] = useState({ title: '', author: '', category: '' });
   const dispatch = useDispatch();
   const addHandler = () => {
-    const { title, author } = inputs;
+    const { title, author, category } = inputs;
 
     const Book = {
       item_id: uuidv4(),
       title,
       author,
-      category: 'fiction',
+      category,
     };
     dispatch(addBook(Book));
     setInputs({
       title: '',
       author: '',
+      category: '',
     });
   };
   return (
 
     <Form>
+      <h3>ADD NEW BOOK</h3>
       <label htmlFor="title">
         <input
           id="title"
@@ -47,7 +49,19 @@ export default function BookForm() {
           }}
         />
       </label>
-      <button type="button" onClick={addHandler}>Add Book</button>
+
+      <label htmlFor="category">
+        <input
+          id="category"
+          name="category"
+          placeholder="Category"
+          value={inputs.category}
+          onChange={(e) => {
+            setInputs({ ...inputs, category: e.target.value });
+          }}
+        />
+      </label>
+      <button className="add-button" type="button" onClick={addHandler}>Add Book</button>
     </Form>
   );
 }

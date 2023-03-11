@@ -1,0 +1,36 @@
+@import './colors';
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 1.4rem;
+
+  h3 {
+    flex: 1 1 100%;
+    font-size: 1.25rem;
+    color: #888;
+    margin-bottom: 0.6rem;
+  }
+
+  input {
+    border: 1px solid $white;
+    padding: 0.6rem 0.8rem;
+    width: 100%;
+    margin-right: 2rem;
+    border-radius: 4px;
+
+    &::placeholder {
+      color: $very-light-pink;
+    }
+  }
+
+  .add-button {
+    width: 15%;
+    background-color: $azure;
+    padding: 0.6rem 1rem;
+    color: $white-two;
+    border: none;
+    border-radius: 3px;
+  }
+}
