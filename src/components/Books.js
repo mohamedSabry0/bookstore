@@ -1,23 +1,16 @@
 import { useSelector } from 'react-redux';
-import Book from './Book';
+import { booksState } from '../redux/books/booksSlice';
 import BookForm from './BookForm';
+import BooksList from './BooksList';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function Books() {
-  const { items } = useSelector((store) => store.books);
+  const { status } = useSelector(booksState);
   return (
-    <>
-      <div className="books-list">
-        {items.map((item) => (
-          <Book
-            key={item.item_id}
-            id={item.item_id}
-            category={item.category}
-            title={item.title}
-            author={item.author}
-          />
-        ))}
-      </div>
+    <div className="books-page">
+      <BooksList />
+      <LoadingSpinner status={status} />
       <BookForm />
-    </>
+    </div>
   );
 }
