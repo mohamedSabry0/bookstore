@@ -17,10 +17,19 @@ function Book({ id, title, author }) {
         {' '}
         <span>{author}</span>
       </p>
-      <Button
-        label="Remove"
-        clickHandler={removeHandler}
-      />
+      <div className="actions-area">
+
+        <Button
+          label="Comments"
+        />
+        <Button
+          label="Remove"
+          clickHandler={removeHandler}
+        />
+        <Button
+          label="Edit"
+        />
+      </div>
     </div>
   );
 }

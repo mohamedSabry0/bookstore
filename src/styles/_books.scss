@@ -1,7 +1,11 @@
 @import './colors';
 .book {
   display: flex;
-
+  
+  .actions-area {
+    display: flex;
+    align-items: center;
+  }
   button {
     border: none;
     background-color: #fff;
