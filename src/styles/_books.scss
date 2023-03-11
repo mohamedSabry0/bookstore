@@ -16,6 +16,7 @@
   background-color: $white-two;
   border: solid 1px $white;
   border-radius: 4px;
+  justify-content: space-between;
 
   div {
     display: flex;
@@ -66,3 +67,5 @@
     margin: 0 1rem;
   }
 }
+
+@import './progress';
