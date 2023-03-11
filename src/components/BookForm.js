@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 
 export default function BookForm() {
-  const [inputs, setInputs] = useState({ title: '', author: '', category: '' });
+  const [inputs, setInputs] = useState({ title: '', author: '', category: 'Action' });
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -53,10 +53,14 @@ export default function BookForm() {
       <label htmlFor="category">
         <select
           name="category"
+          value={inputs.category}
+          onChange={(e) => {
+            setInputs({ ...inputs, category: e.target.value });
+          }}
         >
-          <option value="action">Action</option>
-          <option value="scienceFiction">Science Fiction</option>
-          <option value="economy">Economy</option>
+          <option value="Action">Action</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Economy">Economy</option>
         </select>
       </label>
       <button className="add-button" type="submit">Add Book</button>
