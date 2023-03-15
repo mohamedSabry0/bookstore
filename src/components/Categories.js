@@ -14,7 +14,6 @@ export default function Categories() {
         }}
       >
         Check status
-
       </button>
     </>
   );
